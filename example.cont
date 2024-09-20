@@ -1,0 +1,38 @@
+(defCont main []
+    (apply fizzBuzz doFib 30))
+
+(defCont doFib []
+    (println "Fib(50) = " (fib 50)))
+
+(defCont addOne [cont num]
+    (apply add cont num 1))
+
+(defCont exitMessage [msg]
+    (println msg))
+
+
+(defCont fizzBuzz [ret count]
+    (apply fizzBuzzInner ret count 1))
+(defCont fizzBuzzInner [ret count i]
+    (set five (eq (rem i 5) 0))
+    (set three (eq (rem i 3) 0))
+
+    (if (and five three)
+        (println "FizzBuzz")
+        (if five
+            (println "Fizz")
+            (if three
+                (println "Buzz")
+                (println i))))
+
+    (if (eq i count) (apply ret))
+    (apply fizzBuzzInner ret count (add 1 i)))
+
+
+(defCont fib [ret count]
+    (if (eq count 0) (apply ret 0))
+    (apply fibInner ret count 0 1))
+(defCont fibInner [ret count a b]
+    (if (eq count 1) (apply ret b))
+
+    (apply fibInner ret (sub count 1) b (add a b)))

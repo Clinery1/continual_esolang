@@ -1,0 +1,9 @@
+[package]
+name = "continual"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0.89"
+logos = "0.14.2"
+parser_helper = { git = "https://github.com/Clinery1/parser_helper.git", version = "0.4.1", features = ["logos"] }
